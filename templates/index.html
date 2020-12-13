@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="/static/style.css">
+
+<div id = "header">
+<h1>NYT Crossword Search</h1>
+</div>
+
+<div id = "intro-text">
+  <p>Search 14,535 New York Times crossword puzzles from 1976 through 2018!</p>
+</div>
+
+<div class="flex-container">
+
+  <div class="flex-child clue-search" id="clue-search">
+    <h2>Search Top Clues for an Answer</h2>
+    <form action="/search" method="POST">
+        <p><label for="word">Enter an answer to search for:</label>
+        <input type="text" name="word"/></p>
+        <p><label for="year">Enter a year (leave blank for all):</label>
+        <input type="text" name="year"/></p>
+        <p><label for="n">Number of clues to display:</label>
+        <select name="n">
+            <option value="all">all available</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+          </select></p>
+        <p><input type="submit" value="Search for clues"/></p>
+    </form>
+  </div>
+
+  <div class="flex-child top-answers" id="top-answers">
+    <h2>Search Top Answers</h2>
+    <form action="/top" method="POST">
+      <p><label for="letters">Number of letters:</label>
+        <select name="letters">
+          <option value="all">any length</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10 or more</option>
+        </select></p>
+      <p><label for="year">Enter a year (leave blank for all):</label>
+      <input type="text" name="year"/></p>
+      <p><label for="n">Number of answers to display:</label>
+      <select name="n">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+          <option value="250">250</option>
+          <option value="500">500</option>
+        </select></p>
+      <p><input type="submit" value="Search for top answers"/></p>
+    </form>
+  </div>
+
+</div>
+
+<div id = "footer">
+  <p>Emma Brennan-Wydra, 2020</p>
+</div>
