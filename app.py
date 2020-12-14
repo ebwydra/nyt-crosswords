@@ -9,7 +9,7 @@ def load_puzzles():
 
 @app.before_request
 def access_puzzles():
-    return g.all_puzzles
+    g.all_puzzles
 
 @app.route("/")
 def index():
