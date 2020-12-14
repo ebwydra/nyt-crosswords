@@ -30,7 +30,8 @@ def search():
         #puzz_dict = nytxw.load_all_puzzles() # Load all puzzles in a nested dictionary
         year = nytxw.process_year_input(year_str)
         if year:
-            clue_answer_tups = nytxw.convert_to_list_of_tups_for_year(puzz_dict, year)
+            #clue_answer_tups = nytxw.convert_to_list_of_tups_for_year(puzz_dict, year)
+            clue_answer_tups = nytxw.convert_to_list_of_tups_for_year(puzz_dict, year_str)
             year_as_text = year_str
         else:
             clue_answer_tups = nytxw.convert_to_list_of_tups_all(puzz_dict)
@@ -63,7 +64,7 @@ def top():
     #puzz_dict = nytxw.load_all_puzzles() # Load all puzzles in a nested dictionary
     year = nytxw.process_year_input(year_str)
     if year:
-        clue_answer_tups = nytxw.convert_to_list_of_tups_for_year(puzz_dict, year)
+        clue_answer_tups = nytxw.convert_to_list_of_tups_for_year(puzz_dict, year_str)
         year_as_text = year_str
     else:
         clue_answer_tups = nytxw.convert_to_list_of_tups_all(puzz_dict)
