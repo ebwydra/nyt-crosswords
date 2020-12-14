@@ -189,6 +189,7 @@ def init():
     global all_puzzles
     #all_puzzles = load_all_puzzles_into_dict()
     all_puzzles = load_all_puzzles_into_nested_dict()
+    return all_puzzles
 
 def load_all_puzzles():
     global all_puzzles
