@@ -87,6 +87,13 @@ def top():
 
     return render_template("result.html", search_type="top_answers", n=len(answer_list), letters=letters, year_as_text=year_as_text, answer_list=answer_list)
 
+'''
 if __name__=="__main__":
     nytxw.init()
     app.run(debug=True)
+'''
+
+@app.before_request
+def load_puzzles():
+    all_puzzles = nytxw.load_all_puzzles_into_nested_dict()
+    return all_puzzles
