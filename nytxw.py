@@ -193,3 +193,12 @@ def init():
 def load_all_puzzles():
     global all_puzzles
     return all_puzzles
+
+def load_puzzles_from_json():
+    try:
+        f = open("puzzles.json")
+        all_puzzles = json.loads(f.read())
+        f.close()
+    except:
+        all_puzzles = []
+    return all_puzzles
