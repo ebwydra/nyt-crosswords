@@ -16,7 +16,8 @@ def search():
     trimmed_search_string = nytxw.process_string_input(search_str)
 
     if search_str:
-        puzz_dict = nytxw.load_all_puzzles() # Load all puzzles in a nested dictionary
+        puzz_dict = all_puzzles
+        #puzz_dict = nytxw.load_all_puzzles() # Load all puzzles in a nested dictionary
         year = nytxw.process_year_input(year_str)
         if year:
             clue_answer_tups = nytxw.convert_to_list_of_tups_for_year(puzz_dict, year)
