@@ -96,4 +96,3 @@ if __name__=="__main__":
 @app.before_request
 def load_puzzles():
     all_puzzles = nytxw.load_all_puzzles_into_nested_dict()
-    return all_puzzles
