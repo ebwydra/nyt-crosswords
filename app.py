@@ -7,6 +7,10 @@ app = Flask(__name__)
 def load_puzzles():
     g.all_puzzles = nytxw.load_all_puzzles_into_nested_dict()
 
+@app.before_request
+def access_puzzles():
+    return g.all_puzzles
+
 @app.route("/")
 def index():
     return render_template("index.html")
