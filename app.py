@@ -1,7 +1,11 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, g
 import nytxw
 
 app = Flask(__name__)
+
+@app.before_request
+def load_puzzles():
+    g.all_puzzles = nytxw.load_all_puzzles_into_nested_dict()
 
 @app.route("/")
 def index():
@@ -16,7 +20,7 @@ def search():
     trimmed_search_string = nytxw.process_string_input(search_str)
 
     if search_str:
-        puzz_dict = all_puzzles
+        puzz_dict = g.all_puzzles
         #puzz_dict = nytxw.load_all_puzzles() # Load all puzzles in a nested dictionary
         year = nytxw.process_year_input(year_str)
         if year:
@@ -49,7 +53,7 @@ def top():
     year_str = request.form["year"]
     n_str = request.form["n"]
     letters_str = request.form["letters"]
-    puzz_dict = all_puzzles
+    puzz_dict = g.all_puzzles
     #puzz_dict = nytxw.load_all_puzzles() # Load all puzzles in a nested dictionary
     year = nytxw.process_year_input(year_str)
     if year:
@@ -88,12 +92,7 @@ def top():
 
     return render_template("result.html", search_type="top_answers", n=len(answer_list), letters=letters, year_as_text=year_as_text, answer_list=answer_list)
 
-'''
+
 if __name__=="__main__":
     nytxw.init()
     app.run(debug=True)
-'''
-
-@app.before_request
-def load_puzzles():
-    all_puzzles = nytxw.load_all_puzzles_into_nested_dict()
