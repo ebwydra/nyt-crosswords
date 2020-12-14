@@ -49,8 +49,8 @@ def top():
     year_str = request.form["year"]
     n_str = request.form["n"]
     letters_str = request.form["letters"]
-
-    puzz_dict = nytxw.load_all_puzzles() # Load all puzzles in a nested dictionary
+    puzz_dict = all_puzzles
+    #puzz_dict = nytxw.load_all_puzzles() # Load all puzzles in a nested dictionary
     year = nytxw.process_year_input(year_str)
     if year:
         clue_answer_tups = nytxw.convert_to_list_of_tups_for_year(puzz_dict, year)
