@@ -3,16 +3,15 @@ import nytxw
 
 app = Flask(__name__)
 
-
+'''
 @app.before_first_request
 def load_puzzles():
     g.all_puzzles = nytxw.load_puzzles_from_json()
-
 '''
+
 @app.before_request
 def access_puzzles():
     g.all_puzzles = nytxw.load_puzzles_from_json()
-'''
 
 @app.route("/")
 def index():
