@@ -44,6 +44,14 @@ input[type="submit"] {
   width: 97%;
 }
 
+a:link {
+  color: #E4FDE1;
+}
+
+a:hover {
+  color: #EDB6A3;
+  color: #DD614A;
+}
 
 .flex-container {
     display: flex;

@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, g
 import nytxw
 import sqlite3 as sqlite
 
-DBNAME = 'puzzles.db'
+DBNAME = 'data/puzzles.db'
 app = Flask(__name__)
 
 @app.route("/")

@@ -1,7 +1,7 @@
 import json
 import sqlite3 as sqlite
 
-DBNAME = 'puzzles.db'
+DBNAME = 'data/puzzles.db'
 
 def get_all_answer_clue_tups():
     conn = sqlite.connect(DBNAME)
