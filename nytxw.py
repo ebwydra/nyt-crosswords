@@ -51,7 +51,8 @@ def process_string_input(word_str):
         if char != " ":
             char_list.append(char)
     clean_word = "".join(char_list)
-    return clean_word
+    all_caps = clean_word.upper()
+    return all_caps
 
 # Key for sorting list of tuples (clue, num of times clue appeared) by number of times clue appeared (largest first)
 def second_elem(clue_count_tuple):
@@ -187,3 +188,27 @@ def get_most_common_answers(length=None, n=1000, year=None):
         result_list = result_tup_list
 
     return result_list
+
+# Queries database to find results matching a search string with wildcards
+def search_for_matching_answers(search_string):
+    # Clean up search string
+    cleaned_string = process_string_input(search_string)
+    underscores = cleaned_string.replace("?", "_")
+    # Query database
+    conn = sqlite.connect(DBNAME)
+    cur = conn.cursor()
+    statement = '''
+    SELECT Answer, COUNT(*)
+    FROM AnswerCluePairs
+    WHERE Answer LIKE \"{}\"
+    GROUP BY Answer
+    ORDER BY COUNT(*) DESC
+    '''.format(underscores)
+    results = cur.execute(statement)
+    result_tup_list = results.fetchall() # List of (Answer, Count) tuples
+    conn.close()
+    return result_tup_list
+
+#result = search_for_matching_answers("g???r???")
+#for tup in result:
+#    print(tup)

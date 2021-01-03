@@ -41,7 +41,7 @@ select {
 }
 
 input[type="submit"] {
-  width: 97%;
+  width: 98%;
 }
 
 a:link {
@@ -49,7 +49,33 @@ a:link {
 }
 
 a:hover {
-  color: #EDB6A3;
+  color: #DD614A;
+}
+
+a.header:link {
+  text-decoration: none;
+  color: #E4FDE1;
+}
+
+a.header:hover {
+  text-decoration: none;
+  color: #DD614A;
+}
+
+a.child:link {
+  color: #114B5F;
+  font-weight: bold;
+}
+
+a.child:hover {
+  color: #DD614A;
+}
+
+a.solve-result:link {
+  color: #114B5F;
+}
+
+a.solve-result:hover {
   color: #DD614A;
 }
 
@@ -59,14 +85,16 @@ a:hover {
     border-radius: 15px;
     padding: 5px;
     background-color: #114B5F;
+    margin-right: 50px;
+    margin-left: 50px;
 }
 
-.flex-child{
+.flex-child {
   flex: 1;
   background-color: #E4FDE1;
   border: 3px solid #114B5F;
   border-radius: 15px;
-  padding: 10px;
+  padding: 20px;
   color: #114B5F;
 }
 
@@ -79,20 +107,35 @@ a:hover {
   border-radius: 15px;
   padding: 5px;
   background-color: #114B5F;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+.fullwidth-child {
+  background-color: #E4FDE1;
+  border: 3px solid #114B5F;
+  border-radius: 15px;
+  padding: 20px;
+  color: #114B5F;
 }
 
 .emphasis {
   color: #DD614A;
 }
 
+.nav-menu {
+  color: #E4FDE1;
+  font-family: "Monaco", "Lucida Console", monospace;
+}
+
 #header {
+  color: #E4FDE1;
   text-align: center;
   padding-top: 1px;
 }
 
-#intro-text {
+#nav-menu {
   color: #E4FDE1;
-  font-weight: bold;
   text-align: center;
   padding-bottom: 5px;
 }
@@ -110,4 +153,5 @@ a:hover {
   padding-top: 10px;
   padding-right: 10px;
   color: #E4FDE1;
+  margin-right: 50px;
 }

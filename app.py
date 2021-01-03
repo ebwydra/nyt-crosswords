@@ -9,8 +9,20 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route("/search", methods=["POST"])
-def search():
+@app.route("/explore")
+def explore():
+    return render_template("explore.html")
+
+@app.route("/solve")
+def solve():
+    return render_template("solve.html")
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+@app.route("/explore/search", methods=["POST"])
+def exploresearch():
     search_str = request.form["word"]
     year_str = request.form["year"]
     n_str = request.form["n"]
@@ -33,15 +45,15 @@ def search():
         clue_list = nytxw.get_clues_for_word(trimmed_search_string, n, year)
         # If there were results for the search string, show them.
         if clue_list:
-            return render_template("result.html", search_type="clues", n=len(clue_list), search_str=trimmed_search_string.upper(), year_as_text=year_as_text, clue_list=clue_list)
+            return render_template("explore-result.html", search_type="clues", n=len(clue_list), search_str=trimmed_search_string.upper(), year_as_text=year_as_text, clue_list=clue_list)
         # If not, render result template, but with no results and "No results found!" message.
         else:
-            return render_template("result.html", search_type="clues", n=0, search_str=trimmed_search_string.upper(), year_as_text=year_as_text, clue_list=clue_list)
+            return render_template("explore-result.html", search_type="clues", n=0, search_str=trimmed_search_string.upper(), year_as_text=year_as_text, clue_list=clue_list)
     # If nothing was entered, just render the start page.
     else:
-        return render_template("index.html")
+        return render_template("explore.html")
 
-@app.route("/top", methods=["POST"])
+@app.route("/explore/top", methods=["POST"])
 def top():
     year_str = request.form["year"]
     n_str = request.form["n"]
@@ -67,7 +79,23 @@ def top():
 
     answer_list = nytxw.get_most_common_answers(length=letters, n=n, year=year)
 
-    return render_template("result.html", search_type="top_answers", n=len(answer_list), letters=letters_display, year_as_text=year_as_text, answer_list=answer_list)
+    return render_template("explore-result.html", search_type="top_answers", n=len(answer_list), letters=letters_display, year_as_text=year_as_text, answer_list=answer_list)
+
+@app.route("/solve/search", methods=["POST"])
+def solvesearch():
+    search_str = request.form["word"]
+
+    if search_str:
+        try:
+            result_list = nytxw.search_for_matching_answers(search_str)
+            if result_list:
+                return render_template("solve-result.html", n=len(result_list), search_str=search_str.upper(), result_list=result_list)
+            else:
+                return render_template("solve-result.html", n=0, search_str=search_str.upper(), result_list=result_list)
+        except:
+            return render_template("solve.html")
+    else:
+        return render_template("solve.html")
 
 if __name__=="__main__":
     app.run(debug=True)
