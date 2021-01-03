@@ -48,11 +48,20 @@ a:link {
   color: #E4FDE1;
 }
 
+a:visited {
+  color: #E4FDE1;
+}
+
 a:hover {
   color: #DD614A;
 }
 
 a.header:link {
+  text-decoration: none;
+  color: #E4FDE1;
+}
+
+a.header:visited {
   text-decoration: none;
   color: #E4FDE1;
 }
@@ -67,15 +76,12 @@ a.child:link {
   font-weight: bold;
 }
 
-a.child:hover {
-  color: #DD614A;
-}
-
-a.solve-result:link {
+a.child:visited {
   color: #114B5F;
+  font-weight: bold;
 }
 
-a.solve-result:hover {
+a.child:hover {
   color: #DD614A;
 }
 
