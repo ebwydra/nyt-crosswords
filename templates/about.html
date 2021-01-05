@@ -12,10 +12,23 @@
 <div class="fullwidth-container">
   <div class="fullwidth-child" id="about">
     <h2>About</h2>
-    <p>Coming soon!</p>
+    <p>This application was made by Emma Brennan-Wydra, who loves crossword puzzles and the people who love them!</p>
+    <h3>Explore</h3>
+    <p>You can do two things on the <a class="child" href="/explore">Explore</a> page:</p>
+    <ol>
+      <li><strong>Find clues for a given crossword answer (can be limited to a specific year between 1976-2018).</strong> Note that The answer field is not case-sensitive (i.e., a search for <span class="emphasis">hotpotato</span> will return the same results as a search for <span class="emphasis">HOTPOTATO</span>). Whitespace will be removed from the answer prior to searching (i.e., a search for <span class="emphasis">hot potato</span> will return the same results as a search for <span class="emphasis">hotpotato</span>). In addition, if an invalid year or a year outside of the range (i.e., 1976-2018) is entered, results for all years will be returned. Clue results are ordered by the number of times the clue has been used for the provided answer in the NYT crossword puzzle.</li>
+      <br></br>
+      <li><strong>Find most commonly occurring answers across puzzles (can be limited to a specific length and/or to a specific year).</strong> Use the first dropdown menu to select a desired number of characters (3-15+), or select <span class="emphasis">any length</span> (selected by default) to view all answers. Similar to above, if an invalid year is entered, results for all years will be returned. Answer results are ordered by number of times the answer has appeared in the NYT crossword puzzle.</li>
+    </ol>
+
+    <h3>Solve</h3>
+    <p><strong>The tool on the <a class="child" href="/solve">Solve</a> page can be used to find possible matches for partial answers.</strong> Use a question mark ('?') to represent unknown letters to view all answers matching the pattern that have previously appeared in NYT crossword puzzles (e.g., a search for <span class="emphasis">H?T??????</span> will return HOTPOTATO, HITANDRUN, HITORMISS, HITTHEHAY...). Search is not case sensitive (e.g., a search for <span class="emphasis">h?t??????</span> will return the same results as a search for <span class="emphasis">H?T??????</span>) and answer results are ordered by number of times the answer has appeared in the NYT crossword puzzle.</p>
+
+    <h3>Data</h3>
+    <p>Puzzle data are from <a class="child" href="https://github.com/doshea/nyt_crosswords">Dylan O'Shea's public repository of New York Times crossword puzzles in JSON format</a> from 1/1/1976 through 3/9/2018. Note that there are several gaps in coverage, and coverage is spotty from 2016 onward. More information about crossword puzzles in JSON format can be found on <a class="child" href="https://www.xwordinfo.com/JSON/">XWord Info</a>.</p>
   </div>
 </div>
 
 <div id = "footer">
-  <p>Emma Brennan-Wydra, 2020</p>
+  <p>Emma Brennan-Wydra, 2021</p>
 </div>
